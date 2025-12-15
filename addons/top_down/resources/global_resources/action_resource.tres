@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ActionResource" load_steps=24 format=3 uid="uid://dsk5usbvnbqi3"]
 
-[ext_resource type="Script" path="res://addons/top_down/scripts/input/ActionResource.gd" id="2_l8ve6"]
+[ext_resource type="Script" uid="uid://dejsgrsf4wniy" path="res://addons/top_down/scripts/input/ActionResource.gd" id="2_l8ve6"]
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ugoik"]
 axis = 5
@@ -126,6 +126,3 @@ action_1_gp = SubResource("InputEventJoypadMotion_ugoik")
 action_2_gp = SubResource("InputEventJoypadButton_wp12u")
 next_gp = SubResource("InputEventJoypadButton_lswhf")
 previous_gp = SubResource("InputEventJoypadButton_5hipw")
-aim_deadzone = 0.1
-version = 0
-not_saved = false
