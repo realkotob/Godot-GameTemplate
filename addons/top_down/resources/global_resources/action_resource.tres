@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ActionResource" load_steps=24 format=3 uid="uid://dsk5usbvnbqi3"]
+[gd_resource type="Resource" script_class="ActionResource" format=3 uid="uid://dsk5usbvnbqi3"]
 
 [ext_resource type="Script" uid="uid://dejsgrsf4wniy" path="res://addons/top_down/scripts/input/ActionResource.gd" id="2_l8ve6"]
 

@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://csjmqrrduxorv"]
+[gd_scene format=3 uid="uid://csjmqrrduxorv"]
 
-[ext_resource type="Texture2D" uid="uid://b3gj1j73p318" path="res://addons/top_down/assets/images/shadow.png" id="1_r0qid"]
-[ext_resource type="Texture2D" uid="uid://8liwj4r4bj4m" path="res://addons/top_down/assets/images/characters/plumber_16x16_strip8.png" id="3_2l255"]
+[ext_resource type="Texture2D" uid="uid://bevk5id3o0bei" path="res://addons/top_down/assets/images/shadow.png" id="1_r0qid"]
+[ext_resource type="Texture2D" uid="uid://dlnar218r3sii" path="res://addons/top_down/assets/images/characters/plumber_16x16_strip8.png" id="3_2l255"]
 
 [sub_resource type="Animation" id="Animation_wsv66"]
 length = 0.001
@@ -82,8 +82,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bdy4l"]
 _data = {
-"RESET": SubResource("Animation_wsv66"),
-"died": SubResource("Animation_uak2k")
+&"RESET": SubResource("Animation_wsv66"),
+&"died": SubResource("Animation_uak2k")
 }
 
 [sub_resource type="Animation" id="Animation_itq31"]
@@ -119,32 +119,28 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbujk"]
 _data = {
-"RESET": SubResource("Animation_itq31"),
-"flash": SubResource("Animation_tledj")
+&"RESET": SubResource("Animation_itq31"),
+&"flash": SubResource("Animation_tledj")
 }
 
-[node name="PlayerBody" type="Node2D"]
+[node name="PlayerBody" type="Node2D" unique_id=17008679]
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=888774617]
 modulate = Color(0.0196078, 0.0352941, 0.0784314, 0.454902)
 texture = ExtResource("1_r0qid")
 
-[node name="Body" type="Node2D" parent="."]
+[node name="Body" type="Node2D" parent="." unique_id=1361698012]
 
-[node name="Stretch" type="Node2D" parent="Body"]
+[node name="Stretch" type="Node2D" parent="Body" unique_id=865845014]
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/Stretch"]
+[node name="Sprite2D" type="Sprite2D" parent="Body/Stretch" unique_id=1828603380]
 position = Vector2(0, -8)
 texture = ExtResource("3_2l255")
 hframes = 8
 
-[node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_bdy4l")
-}
-autoplay = "died"
+[node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D" unique_id=1595646790]
+libraries/ = SubResource("AnimationLibrary_bdy4l")
+autoplay = &"died"
 
-[node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_tbujk")
-}
+[node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D" unique_id=467068631]
+libraries/ = SubResource("AnimationLibrary_tbujk")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu2n5cvym7bse"]
+[gd_scene format=3 uid="uid://bu2n5cvym7bse"]
 
-[ext_resource type="Texture2D" uid="uid://b3gj1j73p318" path="res://addons/top_down/assets/images/shadow.png" id="1_uohpc"]
-[ext_resource type="Script" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_lydny"]
-[ext_resource type="Texture2D" uid="uid://cegdmdkhfv76l" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="5_pym8g"]
+[ext_resource type="Texture2D" uid="uid://bevk5id3o0bei" path="res://addons/top_down/assets/images/shadow.png" id="1_uohpc"]
+[ext_resource type="Script" uid="uid://c505hy2cj5vwa" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_lydny"]
+[ext_resource type="Texture2D" uid="uid://dqingf1wt6opq" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="5_pym8g"]
 
 [sub_resource type="Animation" id="Animation_48kfv"]
 length = 0.001
@@ -109,8 +109,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esakt"]
 _data = {
-"RESET": SubResource("Animation_48kfv"),
-"died": SubResource("Animation_2ygqc")
+&"RESET": SubResource("Animation_48kfv"),
+&"died": SubResource("Animation_2ygqc")
 }
 
 [sub_resource type="Animation" id="Animation_itq31"]
@@ -146,38 +146,34 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbujk"]
 _data = {
-"RESET": SubResource("Animation_itq31"),
-"flash": SubResource("Animation_tledj")
+&"RESET": SubResource("Animation_itq31"),
+&"flash": SubResource("Animation_tledj")
 }
 
-[node name="Zombie" type="Node2D"]
+[node name="Zombie" type="Node2D" unique_id=2080154542]
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1527000572]
 modulate = Color(0.0196078, 0.0352941, 0.0784314, 0.454902)
 texture = ExtResource("1_uohpc")
 
-[node name="Body" type="Node2D" parent="."]
+[node name="Body" type="Node2D" parent="." unique_id=858324107]
 scale = Vector2(1e-05, 1e-05)
 
-[node name="Stretch" type="Node2D" parent="Body"]
+[node name="Stretch" type="Node2D" parent="Body" unique_id=154718742]
 
-[node name="Sprite2D" type="Sprite2D" parent="Body/Stretch"]
+[node name="Sprite2D" type="Sprite2D" parent="Body/Stretch" unique_id=1088951624]
 position = Vector2(0, -8)
 texture = ExtResource("5_pym8g")
 hframes = 8
 
-[node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_esakt")
-}
-autoplay = "died"
+[node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D" unique_id=2093001921]
+libraries/ = SubResource("AnimationLibrary_esakt")
+autoplay = &"died"
 
-[node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_tbujk")
-}
+[node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D" unique_id=782131377]
+libraries/ = SubResource("AnimationLibrary_tbujk")
 
-[node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
+[node name="PoolNode" type="Node" parent="." unique_id=2071415629 node_paths=PackedStringArray("ready_nodes", "animation_player_list")]
 script = ExtResource("3_lydny")
 ready_nodes = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator")]
 animation_player_list = [NodePath("../Body/Stretch/Sprite2D/CharacterAnimator"), NodePath("../Body/Stretch/Sprite2D/ColorFlash")]
